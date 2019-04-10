@@ -28,22 +28,40 @@ let bank_balance = 3000;
 
 
 
-var buyPhones = (bank_balance, PHONE_PRICE, ACCESSORY_PRICE) => {
-	var total_cost = 0 
-	while(SPENDING_THRESHOLD>0){
-		//Subtract the phone and accessory price from the bank balance
-		//Then add those prices to the total cost 
-		total_cost += (PHONE_PRICE+ACCESSORY_PRICE)
-		SPENDING_THRESHOLD -= (PHONE_PRICE+ACCESSORY_PRICE)
+var buyPhones = (bank_balance, PHONE_PRICE, ACCESSORY_PRICE, budget) => {
+	let purchase_amount = 0 
+	let phone_counter = 0
+	let accessory_counter = 0 
+
+
+	while(bank_balance>purchase_amount){
+		//purchase a phone 
 		
-		console.log(total_cost)
-		
+			purchase_amount += PHONE_PRICE
+			phone_counter +=1 
 	
-	}
+		//CHecks to see if we can purchase an accessory 
+		if(purchase_amount< SPENDING_THRESHOLD){
+			purchase_amount += ACCESSORY_PRICE
+			accessory_counter +=1 
+		}
+	  }
+	//Calculate and add state tax
+	purchase_amount += (purchase_amount*.0825);
+	
+	console.log(purchase_amount);
 
 	//console.log(total_cost)
-
-
 }
 
 buyPhones(bank_balance, PHONE_PRICE, ACCESSORY_PRICE)
+
+
+
+
+
+
+
+
+
+
