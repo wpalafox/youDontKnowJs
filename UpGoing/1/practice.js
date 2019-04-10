@@ -18,3 +18,32 @@ Bonus Challenge: Try to incorporate input into this program, perhaps with the pr
 covered in "Input" earlier. You may prompt the user for their bank account balance, for example.
  Have fun and be creative!
 */
+
+
+const PHONE_PRICE = 349.9;
+const SPENDING_THRESHOLD = 2000;
+const ACCESSORY_PRICE = 49.99; 
+
+let bank_balance = 3000; 
+
+
+
+var buyPhones = (bank_balance, PHONE_PRICE, ACCESSORY_PRICE) => {
+	var total_cost = 0 
+	while(SPENDING_THRESHOLD>0){
+		//Subtract the phone and accessory price from the bank balance
+		//Then add those prices to the total cost 
+		total_cost += (PHONE_PRICE+ACCESSORY_PRICE)
+		SPENDING_THRESHOLD -= (PHONE_PRICE+ACCESSORY_PRICE)
+		
+		console.log(total_cost)
+		
+	
+	}
+
+	//console.log(total_cost)
+
+
+}
+
+buyPhones(bank_balance, PHONE_PRICE, ACCESSORY_PRICE)
