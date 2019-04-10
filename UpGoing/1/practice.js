@@ -28,7 +28,7 @@ let bank_balance = 3000;
 
 
 
-var buyPhones = (bank_balance, PHONE_PRICE, ACCESSORY_PRICE, budget) => {
+var buyPhones = (bank_balance, PHONE_PRICE, ACCESSORY_PRICE) => {
 	let purchase_amount = 0 
 	let phone_counter = 0
 	let accessory_counter = 0 
@@ -37,8 +37,8 @@ var buyPhones = (bank_balance, PHONE_PRICE, ACCESSORY_PRICE, budget) => {
 	while(bank_balance>purchase_amount){
 		//purchase a phone 
 		
-			purchase_amount += PHONE_PRICE
-			phone_counter +=1 
+		purchase_amount += PHONE_PRICE
+		phone_counter +=1 
 	
 		//CHecks to see if we can purchase an accessory 
 		if(purchase_amount< SPENDING_THRESHOLD){
@@ -47,9 +47,20 @@ var buyPhones = (bank_balance, PHONE_PRICE, ACCESSORY_PRICE, budget) => {
 		}
 	  }
 	//Calculate and add state tax
+	console.log("Purchase amount (Before tax): "+purchase_amount)
 	purchase_amount += (purchase_amount*.0825);
 	
-	console.log(purchase_amount);
+	console.log("Purchase amount (After Tax): "+purchase_amount);
+
+
+	if(purchase_amount>bank_balance){
+		console.log("You cannot afford these products :(")
+
+
+	}else{
+
+		console.log("You can afford these products! :)")
+	}
 
 	//console.log(total_cost)
 }
